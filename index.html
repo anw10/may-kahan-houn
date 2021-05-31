@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+  </head>
+
+<body>
+    <h1>
+        Where am I?
+    </h1>
+    <h1 class="counter-display">COUNTER_BROKE</h1>
+
+    <div style="position: relative; z-index: 1;">
+        <img src="maykahanhoun.jpg" class="testimage" alt="Responsive image" style="position: absolute; z-index: 2;" widht=700px height=500px></iframe>
+        <a class="click-me" onclick="returnRandom()" style="position: relative; top: random; z-index: 3">.</a>
+    </div>
+    
+</body>
+
+<script>
+let count = 0;
+let random = Math.random()*100;
+var audio = new Audio('audiomaykahanhoun.opus');
+
+
+    $(".click-me").click(function() {
+  count = count + 1;
+  audio.play();
+  return false;
+});
+
+let counterDisplayElem = document.querySelector('.counter-display');
+let counterPlusElem = document.querySelector('.click-me');
+
+updateDisplay();
+
+counterPlusElem.addEventListener("click",()=>{
+    updateDisplay();
+    counterPlusElem.style.top = random;
+}) ;
+
+function updateDisplay(){
+    counterDisplayElem.innerHTML = count;
+};
+
+counterPlusElem.style.top = random;
+
+returnRandom = () => {
+    let random = Math.random()*600;
+    counterPlusElem.style.position = "relative";
+    counterPlusElem.style.top = random + "px";
+    counterPlusElem.style.left = random + "px";
+    counterPlusElem.style.zindex = 3;
+};
+
+</script>
+
+</html>
